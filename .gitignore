@@ -112,6 +112,7 @@ fabric.properties
 # *.ipr
 
 # Sonarlint plugin
+.idea/
 .idea/sonarlint
 
 ### Linux ###
