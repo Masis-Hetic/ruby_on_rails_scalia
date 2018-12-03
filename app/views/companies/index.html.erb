@@ -1,0 +1,7 @@
+<%= @companies.to_json %>
+<% @companies.each do |company| %>
+  <p><%= company.name %></p>
+  <p><%= company.city %></p>
+  <p><%= company.director_name %></p>
+  <p><%= company.id %></p>
+<% end %>
