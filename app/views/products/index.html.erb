@@ -1,8 +1,7 @@
+<% @products = ProductsHelper.products %>
 <p>
   <%= link_to 'New', new_product_path %>
 </p>
-
-<% @products = ProductsHelper.products('all') %>
 
 <% @products.each do |product| %>
   <div class="wrapper">

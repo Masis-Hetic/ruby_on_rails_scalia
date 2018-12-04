@@ -1,6 +1,8 @@
 <div>show</div>
-<% id = @product.companies_id %>
-<p>NAME : <%= @product.name %></p>
-<p>QUANTITY : <%= @product.quantity %></p>
-<p>REFERENCE : <%= @product.reference %></p>
-<p>COMPANY : <%= Company.find(id).name %></p>
+<p>NAME : <%= @product[:product].name %></p>
+<p>QUANTITY : <%= @product[:product].quantity %></p>
+<p>REFERENCE : <%= @product[:product].reference %></p>
+<p>COMPANY : <%= @product[:company] %></p>
+<%= link_to 'Retour index', products_path %>
+<%= link_to 'Edit', edit_product_path(@product[:product].id) %>
+<%= link_to 'Delete', "/products/#{@product[:product].id}", method: :delete, data: { confirm: 'Êtes-vous sur ?' } %>
