@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def show
-
+		@company = Company.find(params[:id])
 	end
 
 	def new
@@ -16,11 +16,19 @@ class CompaniesController < ApplicationController
 	end
 
 	def update
+		@company = Company.find(params[:id])
+		@company.update(valid_params)
+		redirect_to company_path
 	end
 
 	def create
-		@company = Company.new(valid_params)
-		@company.save
+		@company = Company.create(valid_params)
+		redirect_to company_path(@company.id)
+	end
+
+	def destroy
+		@company = Company.find(params[:id])
+		@company.destroy
 		redirect_to companies_path
 	end
 

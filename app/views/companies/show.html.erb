@@ -1,1 +1,6 @@
 <div>show</div>
+<%= @company.name %>
+<%= @company.director_name %>
+<%= @company.city %>
+<a href="<%= companies_path %>">Retour index</a>
+<a href="<%= edit_company_path(@company.id) %>">Edit</a>

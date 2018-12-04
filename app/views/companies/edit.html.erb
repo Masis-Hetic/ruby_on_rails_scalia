@@ -1,0 +1,22 @@
+<h1>edit</h1>
+<%= @company.to_json %>
+<%= form_with model: @company, local: true do |f| %>
+  <div class="wrapper">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="wrapper">
+    <%= f.label :director_name %>
+    <%= f.text_field :director_name %>
+  </div>
+
+  <div class="wrapper">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="wrapper">
+    <%= f.submit %>
+  </div>
+<% end %>
