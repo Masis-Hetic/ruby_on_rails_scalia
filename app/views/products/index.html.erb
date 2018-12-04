@@ -1,0 +1,25 @@
+<p>
+  <%= link_to 'New', new_product_path %>
+</p>
+
+<% @products = ProductsHelper.products('all') %>
+
+<% @products.each do |product| %>
+  <div class="wrapper">
+    <div>NAME : <%= product.name %></div>
+    <div>QUANTITY : <%= product.quantity %></div>
+    <div>REFERENCE : <%= product.reference %></div>
+    <div>COMPANY : <%= product.company %></div>
+    <div>
+      <p>
+        <%= link_to 'Show', product_path(product.id) %>
+      </p>
+      <p>
+        <%= link_to 'Edit', edit_product_path(product.id) %>
+      </p>
+      <p>
+        <%= link_to 'Delete', "products/#{product.id}", method: :delete, data: { confirm: 'Êtes vous sur ?' } %>
+      </p>
+    </div>
+  </div>
+<% end %>

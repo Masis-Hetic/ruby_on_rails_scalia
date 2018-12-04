@@ -1,0 +1,21 @@
+<%= form_with(model: @product, local: true) do |f| %>
+  <div class="wrapper">
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: 'Nom du produit' %>
+  </div>
+  <div class="wrapper">
+    <%= f.label :reference %>
+    <%= f.number_field :reference, placeholder: 'Référence du produit' %>
+  </div>
+  <div class="wrapper">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity, placeholder: 'Quantité' %>
+  </div>
+  <div class="wrapper">
+    <%= f.label :companies_id %>
+    <%= f.select :companies_id, Company.all.collect { |c| [ c.name, c.id ] } %>
+  </div>
+  <div class="wrapper">
+    <%= f.submit %>
+  </div>
+<% end %>

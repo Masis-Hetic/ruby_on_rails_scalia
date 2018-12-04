@@ -1,0 +1,6 @@
+<div>show</div>
+<% id = @product.companies_id %>
+<p>NAME : <%= @product.name %></p>
+<p>QUANTITY : <%= @product.quantity %></p>
+<p>REFERENCE : <%= @product.reference %></p>
+<p>COMPANY : <%= Company.find(id).name %></p>
