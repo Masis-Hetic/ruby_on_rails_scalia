@@ -1,1 +1,5 @@
 <h1>welcome index</h1>
+
+<% unless admin_signed_in? %>
+  <p>Please click `Login` and create an account</p>
+<% end %>
