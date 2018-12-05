@@ -1,18 +1,13 @@
 <h1>edit</h1>
-<%= form_with model: @product, local: true do |f| %>
+<%= form_with model: @user, local: true do |f| %>
   <div class="wrapper">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :fist_name %>
+    <%= f.text_field :first_name %>
   </div>
 
   <div class="wrapper">
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
-  </div>
-
-  <div class="wrapper">
-    <%= f.label :reference %>
-    <%= f.number_field :reference %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
   </div>
 
   <div class="wrapper">

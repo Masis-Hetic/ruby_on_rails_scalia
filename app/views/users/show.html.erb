@@ -1,0 +1,7 @@
+<h1>show</h1>
+<p>FIRST_NAME : <%= @user[:user].first_name %></p>
+<p>LAST_NAME : <%= @user[:user].last_name %></p>
+<p>COMPANY : <%= @user[:company] %></p>
+<%= link_to 'Retour index', users_path %>
+<%= link_to 'Edit', edit_user_path(@user[:user].id) %>
+<%= link_to 'Delete', "/users/#{@user[:user].id}", method: :delete, data: { confirm: 'Êtes-vous sur ?' } %>

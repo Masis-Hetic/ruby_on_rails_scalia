@@ -12,4 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require _bootstrap
+ *= require index
+ *= require _nagivation
  */

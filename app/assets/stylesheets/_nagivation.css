@@ -1,0 +1,19 @@
+header {
+  background : #2E2F30;
+}
+
+header nav ul {
+  width           : 60%;
+  padding         : 15px 0 15px 20px;
+  display         : flex;
+  justify-content : space-between;
+}
+
+header a {
+  color           : #fff;
+  text-decoration : none;
+}
+
+header a:hover {
+  color : #fff;
+}

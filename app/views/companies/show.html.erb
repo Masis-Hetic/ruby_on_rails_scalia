@@ -1,6 +1,15 @@
-<div>show</div>
-<%= @company.name %>
-<%= @company.director_name %>
-<%= @company.city %>
-<a href="<%= companies_path %>">Retour index</a>
-<a href="<%= edit_company_path(@company.id) %>">Edit</a>
+<div class="text-center font-weight-bold title"><%= @company.name.upcase %></div>
+
+
+<ul class="show">
+  <li>
+    <p><span class="font-weight-bold">Company name :</span> <%= @company.name %></p>
+    <p><span class="font-weight-bold">Company CEO :</span> <%= @company.director_name %></p>
+    <p><span class="font-weight-bold">Company city :</span> <%= @company.city %></p>
+  </li>
+  <li class="btns">
+    <p><%= link_to 'Index', companies_path, class: 'btn btn-success' %></p>
+    <p><%= link_to 'Edit', edit_company_path(@company.id), class: 'btn btn-warning' %></p>
+    <p><%= link_to 'Delete', "/companies/#{@company.id}", method: :delete, data: { confirm: 'Êtes-vous sur ?' }, class: 'btn btn-danger' %></p>
+  </li>
+</ul>

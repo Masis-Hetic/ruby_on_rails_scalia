@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-	belongs_to :company, optional: true, dependent: :destroy
+	belongs_to :company, optional: true
 	attr_accessor :company
 
 	def self.company_name(id)

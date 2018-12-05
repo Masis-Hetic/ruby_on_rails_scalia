@@ -1,19 +1,27 @@
-<p>
-  <a href="<%= new_company_path %>">New</a>
-</p>
-<% @companies.each do |company| %>
-  <div class="wrapper">
-    <p>NAME : <%= company.name %></p>
-    <p>CITY : <%= company.city %></p>
-    <p>PDG : <%= company.director_name %></p>
-    <p>
-      <%= link_to 'Show', company_path(company.id) %>
-    </p>
-    <p>
-      <%= link_to 'Edit', edit_company_path(company.id) %>
-    </p>
-    <p>
-      <%= link_to 'Delete', company, method: :delete, data: { confirm: 'Êtes vous sur ?' } %>
-    </p>
-  </div>
-<% end %>
+<div class="new-item">
+  <a href="<%= new_company_path %>" class="btn btn-success">Add new company</a>
+</div>
+
+<div class="big-wrapper">
+  <% @companies.each do |company| %>
+    <div class="wrapper">
+      <div class="inner-wrapper">
+        <p>NAME : <%= company.name %></p>
+        <p>CITY : <%= company.city %></p>
+        <p>PDG : <%= company.director_name %></p>
+      </div>
+      <div class="btns">
+        <p>
+          <%= link_to 'Show', company_path(company.id), class: 'btn btn-info' %>
+        </p>
+        <p>
+          <%= link_to 'Edit', edit_company_path(company.id), class: 'btn btn-warning' %>
+        </p>
+        <p>
+          <%= link_to 'Delete', company, method: :delete, data: { confirm: 'Êtes vous sur ?' },
+                      class: 'btn btn-danger' %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>

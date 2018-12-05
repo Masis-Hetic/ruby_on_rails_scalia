@@ -1,0 +1,21 @@
+<div class="text-center font-weight-bold title">Add new user</div>
+<%= form_with model: @user, local: true do |f| %>
+  <div class="wrapper">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, placeholder: 'Prénom' %>
+  </div>
+
+  <div class="wrapper">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, placeholder: 'Nom de famille' %>
+  </div>
+
+  <div class="wrapper">
+    <%= f.label :companies_id %>
+    <%= f.select :companies_id, Company.all.collect { |c| [ c.name, c.id ] } %>
+  </div>
+
+  <div class="wrapper">
+    <%= f.submit :value => 'Enregistrer' %>
+  </div>
+<% end %>

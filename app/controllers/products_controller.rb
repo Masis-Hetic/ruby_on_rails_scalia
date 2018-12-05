@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-
 	def index
 		@products = Product.all
 	end
@@ -17,7 +16,9 @@ class ProductsController < ApplicationController
 	end
 
 	def update
-
+		@product = Product.find(params[:id])
+		@product.update(valid_product)
+		redirect_to product_path
 	end
 
 	def create

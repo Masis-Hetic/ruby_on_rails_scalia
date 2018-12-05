@@ -1,0 +1,27 @@
+<% @users = UsersHelper.users %>
+
+<div class="new-item">
+  <%= link_to 'Ajouter un utilisateur', new_user_path, class: 'btn btn-success' %>
+</div>
+
+<div class="big-wrapper">
+  <% @users.each do |user| %>
+    <div class="wrapper">
+      <p>FIRST_NAME : <%= user.first_name %></p>
+      <p>LAST_NAME : <%= user.last_name %></p>
+      <p>COMPANY : <%= user.company %></p>
+      <div class="btns">
+        <p>
+          <%= link_to 'Show', user_path(user.id), class: 'btn btn-info' %>
+        </p>
+        <p>
+          <%= link_to 'Edit', edit_user_path(user.id), class: 'btn btn-warning' %>
+        </p>
+        <p>
+          <%= link_to 'Delete', "users/#{user.id}", method: :delete, data: { confirm: 'Êtes-vous sur ?' },
+                      class: 'btn btn-danger' %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
