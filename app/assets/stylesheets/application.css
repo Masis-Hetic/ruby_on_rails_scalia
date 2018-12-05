@@ -15,4 +15,5 @@
  *= require _bootstrap
  *= require index
  *= require _nagivation
+ *= require _devise
  */

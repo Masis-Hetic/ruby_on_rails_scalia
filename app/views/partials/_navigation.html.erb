@@ -22,6 +22,13 @@
       <li>
         <%= link_to 'All users', users_path %>
       </li>
+      <li>
+        <% if admin_signed_in? %>
+          <%= link_to 'Logout', destroy_admin_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Login', new_admin_session_path %>
+        <% end %>
+      </li>
     </ul>
   </nav>
 </header>
