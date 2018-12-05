@@ -1,5 +1,6 @@
-class User < ApplicationRecord
+class User < ActiveRecord::Base
 	belongs_to :company, optional: true, dependent: :destroy
+	validates :last_name, presence: true, confirmation: true
 	attr_accessor :company
 
 	def self.company_name(id)

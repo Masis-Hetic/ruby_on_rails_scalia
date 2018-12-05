@@ -1,4 +1,4 @@
-class Company < ApplicationRecord
+class Company < ActiveRecord::Base
 	has_many :products, foreign_key: 'companies_id', dependent: :destroy
 	has_many :users, foreign_key: 'companies_id', dependent: :destroy
 
