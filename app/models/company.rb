@@ -1,6 +1,8 @@
 class Company < ActiveRecord::Base
+
 	has_many :products, foreign_key: 'companies_id', dependent: :destroy
 	has_many :users, foreign_key: 'companies_id', dependent: :destroy
+	validates :name, :director_name, :city, presence: true
 
 	def self.display_products(id)
 		@product_array = Array.new

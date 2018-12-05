@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 	before_action :authenticate_admin!
+
 	def index
 		@products = Product.all
 	end
@@ -9,8 +10,6 @@ class ProductsController < ApplicationController
 	end
 
 	def create
-		# @product = Product.create(valid_product)
-
 		@product = Product.new(valid_product)
 
 		respond_to do |r|

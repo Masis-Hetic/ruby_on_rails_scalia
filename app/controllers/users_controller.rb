@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_action :authenticate_admin!
+
 	def index
 		@users = User.all
 	end
@@ -9,8 +10,6 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		# @user = User.create(users_params)
-		# redirect_to user_path(@user.id)
 		@user = User.new(users_params)
 
 		respond_to do |r|

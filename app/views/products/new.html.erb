@@ -1,6 +1,6 @@
 <div class="text-center font-weight-bold title">Add new product</div>
 
-<%= form_with model: @product, local: true do |f| %>
+<%= form_with model: @product do |f| %>
   <div class="wrapper">
     <%= f.label :name %>
     <%= f.text_field :name, placeholder: 'Nom du produit' %>

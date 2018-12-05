@@ -23,8 +23,15 @@ class CompaniesController < ApplicationController
 	end
 
 	def create
-		@company = Company.create(valid_params)
-		redirect_to company_path(@company.id)
+		@company = Company.new(valid_params)
+
+		respond_to do |r|
+			if @company.save
+				r.html { redirect_to companies_path(@company.id) }
+			else
+				r.html { render :new }
+			end
+		end
 	end
 
 	def destroy
