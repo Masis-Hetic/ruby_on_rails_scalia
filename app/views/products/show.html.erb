@@ -1,8 +1,15 @@
-<div>show</div>
-<p>NAME : <%= @product[:product].name %></p>
-<p>QUANTITY : <%= @product[:product].quantity %></p>
-<p>REFERENCE : <%= @product[:product].reference %></p>
-<p>COMPANY : <%= @product[:company] %></p>
-<%= link_to 'Retour index', products_path %>
-<%= link_to 'Edit', edit_product_path(@product[:product].id) %>
-<%= link_to 'Delete', "/products/#{@product[:product].id}", method: :delete, data: { confirm: 'Êtes-vous sur ?' } %>
+<div class="text-center font-weight-bold title"><%= @product[:product].name.upcase %></div>
+
+<ul class="show">
+  <li>
+    <p><span class="font-weight-bold">Product name : </span><%= @product[:product].name %></p>
+    <p><span class="font-weight-bold">Product quantity : </span><%= @product[:product].quantity %></p>
+    <p><span class="font-weight-bold">Product reference : </span><%= @product[:product].reference %></p>
+    <p><span class="font-weight-bold">Belongs to company : </span><%= @product[:company] %></p>
+  </li>
+  <li class="btns">
+    <p><%= link_to 'Retour index', products_path, class: 'btn btn-success' %></p>
+    <p><%= link_to 'Edit', edit_product_path(@product[:product].id), class: 'btn btn-warning' %></p>
+    <p><%= link_to 'Delete', "/products/#{@product[:product].id}", method: :delete, data: { confirm: 'Êtes-vous sur ?' }, class: 'btn btn-danger' %></p>
+  </li>
+</ul>

@@ -1,7 +1,15 @@
-<h1>show</h1>
-<p>FIRST_NAME : <%= @user[:user].first_name %></p>
-<p>LAST_NAME : <%= @user[:user].last_name %></p>
-<p>COMPANY : <%= @user[:company] %></p>
-<%= link_to 'Retour index', users_path %>
-<%= link_to 'Edit', edit_user_path(@user[:user].id) %>
-<%= link_to 'Delete', "/users/#{@user[:user].id}", method: :delete, data: { confirm: 'Êtes-vous sur ?' } %>
+<div class="text-center font-weight-bold title"><%= @user[:user].first_name.capitalize %> <%= @user[:user].last_name.upcase %></div>
+
+
+<ul class="show">
+  <li>
+    <p><span class="font-weight-bold">User first name :</span> <%= @user[:user].first_name %></p>
+    <p><span class="font-weight-bold">User last name :</span> <%= @user[:user].last_name %></p>
+    <p><span class="font-weight-bold">Belongs to company :</span> <%= @user[:company] %></p>
+  </li>
+  <li class="btns">
+    <p><%= link_to 'Index', users_path, class: 'btn btn-success' %></p>
+    <p><%= link_to 'Edit', edit_user_path(@user[:user].id), class: 'btn btn-warning' %></p>
+    <p><%= link_to 'Delete', "/users/#{@user[:user].id}", method: :delete, data: { confirm: 'Êtes-vous sur ?' }, class: 'btn btn-danger' %></p>
+  </li>
+</ul>
