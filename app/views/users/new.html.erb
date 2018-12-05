@@ -1,5 +1,6 @@
 <div class="text-center font-weight-bold title">Add new user</div>
-<%= form_with model: @user, local: true do |f| %>
+
+<%= form_with model: @user do |f| %>
   <div class="wrapper">
     <%= f.label :first_name %>
     <%= f.text_field :first_name, placeholder: 'Prénom' %>

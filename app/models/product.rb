@@ -1,6 +1,8 @@
 class Product < ActiveRecord::Base
+
 	belongs_to :company, optional: true
 	attr_accessor :company
+	validates :name, :quantity, :reference, presence: true
 
 	def self.company_name(id)
 		Company.find(id)
@@ -14,4 +16,5 @@ class Product < ActiveRecord::Base
 
 		return @product
 	end
+
 end

@@ -9,8 +9,17 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.create(users_params)
-		redirect_to user_path(@user.id)
+		# @user = User.create(users_params)
+		# redirect_to user_path(@user.id)
+		@user = User.new(users_params)
+
+		respond_to do |r|
+			if @user.save
+				r.html { redirect_to user_path(@user.id) }
+			else
+				r.html { render new_user_path }
+			end
+		end
 	end
 
 	def new

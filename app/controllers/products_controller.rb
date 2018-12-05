@@ -8,6 +8,20 @@ class ProductsController < ApplicationController
 		@product = Product.show_one_product(params[:id])
 	end
 
+	def create
+		# @product = Product.create(valid_product)
+
+		@product = Product.new(valid_product)
+
+		respond_to do |r|
+			if @product.save
+				r.html { redirect_to product_path(@product.id) }
+			else
+				r.html { render :new }
+			end
+		end
+	end
+
 	def new
 		@product = Product.new
 	end
@@ -20,11 +34,6 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 		@product.update(valid_product)
 		redirect_to product_path
-	end
-
-	def create
-		@product = Product.create(valid_product)
-		redirect_to products_path
 	end
 
 	def destroy

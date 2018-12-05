@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
+
 	belongs_to :company, optional: true, dependent: :destroy
-	validates :last_name, presence: true, confirmation: true
 	attr_accessor :company
+	validates :last_name, :first_name, presence: true
 
 	def self.company_name(id)
 		Company.find(id)
