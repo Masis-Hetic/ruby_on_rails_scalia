@@ -23,6 +23,9 @@ gem 'bootstrap'
 # add 'devise'
 gem 'devise'
 
+# add faker
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
