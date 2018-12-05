@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_12_05_091905) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "companies", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_091905) do
     t.string "name"
     t.integer "quantity"
     t.integer "reference"
-    t.integer "companies_id"
+    t.bigint "companies_id"
     t.index ["companies_id"], name: "index_products_on_companies_id"
   end
 
@@ -35,8 +38,10 @@ ActiveRecord::Schema.define(version: 2018_12_05_091905) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.integer "companies_id"
+    t.bigint "companies_id"
     t.index ["companies_id"], name: "index_users_on_companies_id"
   end
 
+  add_foreign_key "products", "companies", column: "companies_id"
+  add_foreign_key "users", "companies", column: "companies_id"
 end
