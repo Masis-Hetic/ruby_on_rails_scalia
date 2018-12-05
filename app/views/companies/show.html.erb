@@ -1,10 +1,49 @@
+<%
+  products = Company.display_products(params[:id])
+  products_length = products.length
+
+  users = Company.display_users(params[:id])
+  users_length = users.length
+%>
 <div class="text-center font-weight-bold title"><%= @company.name.upcase %></div>
+
 
 <ul class="show">
   <li>
     <p><span class="font-weight-bold">Company name :</span> <%= @company.name %></p>
     <p><span class="font-weight-bold">Company CEO :</span> <%= @company.director_name %></p>
     <p><span class="font-weight-bold">Company city :</span> <%= @company.city %></p>
+
+    <div class="wrapper">
+      <div class="inner-wrapper">
+        <%= 'This company has not product' if products_length === 0 %>
+        <% if products.length > 0 %>
+          <p class="text-center font-weight-bold"><%= products_length === 1 ? 'Product' : 'Products list' %></p>
+
+          <div class="column">
+            <% products.each do |p| %>
+              <p class="lists">- <%= p.name %></p>
+            <% end %>
+          </div>
+
+        <% end %>
+      </div>
+
+      <div class="inner-wrapper">
+        <%= 'This company has not user' if users_length === 0 %>
+        <% if users.length > 0 %>
+        <p class="text-center font-weight-bold"><%= users_length === 1 ? 'User' : 'Users list' %></p>
+
+          <div class="column">
+            <% users.each do |u| %>
+              <p class="lists">- <%= u.first_name.capitalize %> <%= u.last_name.upcase %></p>
+            <% end %>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+
   </li>
   <li class="btns">
     <p><%= link_to 'Index', companies_path, class: 'btn btn-success' %></p>

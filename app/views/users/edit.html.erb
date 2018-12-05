@@ -1,4 +1,4 @@
-<h1>edit</h1>
+<div class="center font-weight-bold"><%= @user.first_name.capitalize %> <%= @user.last_name.upcase %></div>
 <%= form_with model: @user, local: true do |f| %>
   <div class="wrapper">
     <%= f.label :fist_name %>
@@ -16,6 +16,6 @@
   </div>
 
   <div class="wrapper">
-    <%= f.submit :value => 'Modifier' %>
+    <%= f.submit :value => 'Modifier', :class => 'btn btn-primary' %>
   </div>
 <% end %>

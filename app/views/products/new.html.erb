@@ -17,6 +17,6 @@
     <%= f.select :companies_id, Company.all.collect { |c| [ c.name, c.id ] } %>
   </div>
   <div class="wrapper">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-primary', :value => 'Enregistrer' %>
   </div>
 <% end %>
