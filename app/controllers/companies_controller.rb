@@ -27,7 +27,7 @@ class CompaniesController < ApplicationController
 
 		respond_to do |r|
 			if @company.save
-				r.html { redirect_to companies_path(@company.id) }
+				r.html { redirect_to companies_path(@company.id), notice: 'Compagnie créée' }
 			else
 				r.html { render :new }
 			end

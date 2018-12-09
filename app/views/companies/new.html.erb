@@ -1,5 +1,13 @@
 <div class="text-center font-weight-bold title">Add new company</div>
-<%= form_with model: @company do |f| %>
+
+<% if @company.errors.any? %>
+  <% @company.errors.each do |name, msg| %>
+    <% name = 'Director name' if name.to_s === 'director_name' %>
+    <p class="text-center"><%= name %> <%= msg %></p>
+  <% end %>
+<% end %>
+
+<%= form_with model: @company, local: true do |f| %>
   <div class="wrapper">
     <%= f.label :name %>
     <%= f.text_field :name, placeholder: 'Nom de la société' %>

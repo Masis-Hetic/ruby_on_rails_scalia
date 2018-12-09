@@ -1,6 +1,12 @@
 <div class="text-center font-weight-bold title">Add new product</div>
 
-<%= form_with model: @product do |f| %>
+<% if @product.errors.any? %>
+  <% @product.errors.each do |name, msg| %>
+    <p class="text-center"><%= name %> <%= msg %></p>
+  <% end %>
+<% end %>
+
+<%= form_with model: @product, local: true do |f| %>
   <div class="wrapper">
     <%= f.label :name %>
     <%= f.text_field :name, placeholder: 'Nom du produit' %>

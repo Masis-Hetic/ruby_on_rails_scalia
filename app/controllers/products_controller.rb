@@ -14,9 +14,9 @@ class ProductsController < ApplicationController
 
 		respond_to do |r|
 			if @product.save
-				r.html { redirect_to product_path(@product.id) }
+				r.html { redirect_to product_path(@product.id), notice: "Produit enregistré" }
 			else
-				r.html { render :new }
+				r.html { render 'new' }
 			end
 		end
 	end
