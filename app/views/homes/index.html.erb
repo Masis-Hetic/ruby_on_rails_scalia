@@ -2,4 +2,43 @@
 
 <% unless admin_signed_in? %>
   <p class="center">Please click `Login` and create an account</p>
+  <p>Or use this account : </p>
+  <p>username : test@gmail.com</p>
+  <p>password : azerty</p>
+<% end %>
+
+<% if admin_signed_in? %>
+  <div style="margin: 50px auto; display: table;" >
+    <h2 class="text-center">Ruby on Rails test</h2>
+
+    <p>
+      <strong>Your database should have 3 tables (attributes are up to you) :</strong>
+      Company User Product
+    </p>
+
+    <p>Company has many users Company has many products</p>
+
+    <p>Seed file to create a few random companies at the beginning</p>
+
+    <p>
+      <strong>Forms: </strong><br />
+      Form to sign up for a company Form to create a product belonging to a company (once signed in)
+    </p>
+
+    <p>
+      <strong>Pages: </strong><br />
+      Pages for the 2 forms above
+    </p>
+
+    <p>See a list of all companies : /companies</p>
+
+    <p>See a list of all products : /products</p>
+
+    <p>
+      Additional information and expected behavior:
+      => When destroying a company, all users and products are destroyed
+    </p>
+
+    <p>=> Scaffolding is forbidden</p>
+    </div>
 <% end %>
